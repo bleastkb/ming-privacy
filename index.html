@@ -10,32 +10,47 @@ h1{font-size:28px;margin:0 0 4px} h2{font-size:13px;letter-spacing:.08em;text-tr
 p,li{margin:0 0 10px} ul{padding-left:20px} .mute{color:var(--mute)}
 </style></head><body><main>
 <h1>Ming — Privacy Policy</h1>
-<p class="mute">Last updated: 4 October 2026</p>
+<p class="mute">Last updated: 22 November 2026</p>
 
 <h2>The short version</h2>
-<p>Your birth date, birth time and birth place stay on your phone. Ming has no account, no analytics and no cloud sync. Only the Ask feature sends anything off the device, and what it sends is described below.</p>
+<p>Your birth date, birth time and birth place stay on your phone. Ming has no account, no ads, no tracking and no cloud sync. Three things leave the device, each described below: what the Ask feature sends when you ask for a written reading, a place name sent to Apple Maps when Ming’s own list of cities has no match, and anonymous counts of what happens in the app, which you can switch off.</p>
 
 <h2>Stays on your phone</h2>
 <ul>
 <li>Birth date, birth time and birth place — yours and anyone you save.</li>
 <li>Your chart, your daily reading and every relational reading. They are calculated on the device and work offline.</li>
-<li>What you marked or wrote on the recognition screen. It is never sent anywhere.</li>
+<li>What you answered or wrote about yourself in the first run. It is never sent anywhere.</li>
 <li>Saved casts and settings.</li>
 </ul>
 
 <h2>Sent when you cast (Ask)</h2>
-<p>Pressing “Cast the lines” sends, through Ming’s reading proxy to DeepSeek (api.deepseek.com):</p>
+<p>Casting in Ask sends, through Ming’s reading proxy to Anthropic (api.anthropic.com, the maker of Claude), or, when Anthropic cannot answer, to OpenAI (api.openai.com):</p>
 <ul>
 <li>the question you typed and your chosen interests;</li>
 <li>the hexagram;</li>
-<li>a short summary derived from your chart: Day Master and its strength, the element in excess, the element lacking, the current ten-year period, and whether today favours you;</li>
-<li>if you ask about someone you saved: their first name and the relation between the two charts.</li>
+<li>a short summary derived from your chart: Day Master and its strength, the element in excess, the element it needs, the current ten-year period and its ages (such as 27–36), and whether today favours you;</li>
+<li>if you ask about someone you saved: their first name, how they are related to you, their Day Master and the relation between the two charts;</li>
+<li>in Talk it through: your follow-up question, the first reading and the earlier follow-ups on that cast.</li>
 </ul>
-<p>This is used only to write that one reading. DeepSeek is a third-party service whose servers are in China. Raw birth dates, times, coordinates and full names are never sent. Your question is not linked to an account or identity, because Ming has none.</p>
-<p>The proxy forwards your request and does not store it. Ming does not keep the content of your questions on any server. DeepSeek processes requests under its own terms and privacy policy.</p>
+<p>This is used only to write that one reading. Anthropic and OpenAI are third-party services whose servers are in the United States. Anthropic reads every reading first; OpenAI reads it only when Anthropic is unavailable, too slow or declines. Neither uses these requests to train its models; for readers in the European Union the transfer is covered by each company’s data processing addendum and its standard contractual clauses. Ming asks before the first time anything is sent. Raw birth dates, times, coordinates and full names are never sent. Your question is not linked to an account or identity, because Ming has none.</p>
+<p>The proxy forwards your request and does not store it. To stop abuse it counts requests per network for one day, under a one-way code that changes daily; it never keeps the network address itself, and each day's counts are deleted when the next day begins. Ming does not keep the content of your questions on any server. Anthropic and OpenAI process requests as Ming’s processors, under their data processing addenda, and may keep them for a limited time to monitor abuse before deleting them (OpenAI up to 30 days).</p>
+<p>If you choose “Classical text only”, nothing is sent: the reading comes from the Book of Changes on your phone.</p>
 
-<h2>Location search</h2>
-<p>Looking up a birth place uses Apple’s map search on your device and sends no personal information to Ming.</p>
+<h2>Looking up a birth place</h2>
+<p>Ming first looks in its own list of cities, on your phone. Only when that list has no match does it ask Apple Maps, and then it sends only the place name you typed — never your birth date or time, and never your own location. That request goes from your phone to Apple, under Apple’s privacy policy, not to Ming, and Ming does not log or keep it. A line under the field says so before anything is sent.</p>
+
+<h2>Anonymous counts</h2>
+<p>So Ming can tell whether it works, the app counts what happens in it and sends those counts to Ming’s own server (the same Cloudflare Worker that forwards Ask). It counts:</p>
+<ul>
+<li>which first-run steps are reached;</li>
+<li>for each of the five cards in the first run, its number (1 to 5) and whether you answered “that’s me”, “maybe” or “not me”, and how many you recognised — never the card’s words or your chart;</li>
+<li>whether you allowed the morning notification;</li>
+<li>which offers of Ming Plus are seen and opened, by their place in the app, and a trial started or a purchase made, by product;</li>
+<li>a cast made in Ask, with nothing about it;</li>
+<li>whether you opened Ming again one, seven and thirty days after you first did.</li>
+</ul>
+<p>Each count carries a random id that Ming makes on your phone — not the phone’s own identifier or its advertising identifier — the app’s build number, and nothing else. It never carries your birth date, time or place, your chart, your name, your question or anything you write. The server keeps the day a count arrived — not the time, and not your IP address — and deletes counts once they are a year old. Counts are used only to improve Ming, are not linked to you, and are never shared or used for advertising. This is not tracking: nothing is joined with data from other apps or websites.</p>
+<p>Turn off “Anonymous counts” in Settings and nothing more is sent; the id and anything waiting to be sent are deleted from your phone. “Reset counting id” in Settings, or resetting your chart, starts a new id that cannot be joined to the old one. In the China mainland App Store, Ming counts nothing.</p>
 
 <h2>Purchases</h2>
 <p>Purchases are handled by Apple through the App Store. Ming never sees your payment details.</p>
@@ -43,14 +58,17 @@ p,li{margin:0 0 10px} ul{padding-left:20px} .mute{color:var(--mute)}
 <h2>Calendar and notifications</h2>
 <p>If you choose, Ming adds the day’s action to your calendar and sends one local notification a day. Both are optional and processed only on your device.</p>
 
-<h2>Tracking and analytics</h2>
-<p>None. Ming does not track you, show ads, or include analytics or crash-reporting SDKs. If you join a TestFlight beta, Apple may share crash reports and any feedback you choose to send with the developer, under Apple’s terms.</p>
+<h2>Tracking and third parties</h2>
+<p>Ming does not track you or show ads, and includes no third-party analytics, advertising or crash-reporting SDKs. The anonymous counts above go only to Ming’s own server. If you join a TestFlight beta, Apple may share crash reports and any feedback you choose to send with the developer, under Apple’s terms.</p>
 
 <h2>Children</h2>
 <p>Ming is not directed at children under 13.</p>
 
 <h2>Your choices</h2>
-<p>Resetting the chart in Settings erases your data from the phone; deleting the app removes everything. Because Ming holds no account or server-side profile, there is nothing else to delete.</p>
+<p>Resetting the chart in Settings erases your data from the phone and starts a new counting id; deleting the app removes everything. Ming holds no account or server-side profile. The anonymous counts on its server carry only a random id that nothing ties to you, and are deleted once a year old.</p>
+
+<h2>Your rights</h2>
+<p>Wherever you live, including under the GDPR, you can ask what Ming holds about you, or ask for it to be deleted. Ming holds no profile of you on any server: only the anonymous counts above, under a random id that Ming cannot connect to you. Because the app never shows that id and Ming keeps no other link to you, Ming cannot find your counts to hand them over; resetting the id in Settings cuts them off from you for good, and they are deleted once a year old. Write and you will get an answer.</p>
 
 <h2>Changes</h2>
 <p>If what Ming sends ever changes, this page and the in-app “What leaves this phone” page change first.</p>
